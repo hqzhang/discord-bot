@@ -11,7 +11,7 @@ before_install:
 - docker image build -t ${IMGNAME} .
 
 script:
-#TravisCI seems to be coming in on undocumented IP addresses. That is comment.
+#TravisCI seems to be coming in on undocumented IP addresses. That is hq
  - dig +short myip.opendns.com @resolver1.opendns.com
 
 
