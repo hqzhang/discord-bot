@@ -1,5 +1,5 @@
 #!/bin/bash
-echo Hello World
+echo Hello World HQ
 python -V
 python3 -V
 ruby -v
