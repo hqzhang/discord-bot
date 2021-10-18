@@ -28,3 +28,9 @@ jobs:
     script: 
       - ls -al
     if branch = master
+
+deploy:
+  provider: script
+  script: bash scripts/deploy.sh
+  on:
+    branch: master
