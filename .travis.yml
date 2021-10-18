@@ -27,10 +27,10 @@ jobs:
   - stage: unit tests
     script: 
       - ls -al
-    if branch = travis-testing
+    if branch = master
 
 deploy:
   provider: script
   script: bash scripts/deploy.sh
   on:
-    branch: travis-testing
+    branch: master
