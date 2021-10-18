@@ -1,6 +1,6 @@
 arch:
   - arm64
-##################
+
 env:
   - IMGNAME=bradmorg/ubuntu:dbot
 
@@ -11,7 +11,7 @@ before_install:
 #- docker image build -t ${IMGNAME} .
 
 script:
-#TravisCI seems to be coming in on undocumented IP addresses. That is comment.
+#TravisCI seems to be coming in on undocumented IP addresses. .
  - dig +short myip.opendns.com @resolver1.opendns.com
 
 
@@ -27,10 +27,10 @@ jobs:
   - stage: unit tests
     script: 
       - ls -al
-    if branch = master
+    if branch = travis-testing
 
 deploy:
   provider: script
   script: bash scripts/deploy.sh
   on:
-    branch: master
+    branch: travis-testing
