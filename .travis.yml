@@ -1,9 +1,10 @@
 language: minimal
+script: echo "debug 21111"
 ######
-script: echo "debug 1"
+script: echo "debug 222222"
 deploy:
   provider: script
-  script: bash ./run.sh
+  script: echo "debug 33333" && bash ./run.sh
   on:
     branch: master
-script: echo "debug 2"
+script: echo "debug 444444"
