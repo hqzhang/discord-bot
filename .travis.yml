@@ -1,7 +1,9 @@
 language: minimal
 ######
+script: echo "debug 1"
 deploy:
   provider: script
   script: bash ./run.sh
   on:
     branch: master
+script: echo "debug 2"
