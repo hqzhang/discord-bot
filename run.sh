@@ -8,3 +8,5 @@ docker -v
 git --version
 lsb_release -a
 uname -a
+echo "./hello"
+cat ./hello
