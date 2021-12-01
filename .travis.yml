@@ -1,10 +1,32 @@
-language: minimal
-script: echo "debug 21111"
-######
-script: echo "debug 222222"
-deploy:
-  provider: script
-  script: echo "debug 33333" && bash ./run.sh
-  on:
-    branch: master
-script: echo "debug 444444"
+language: node_js
+node_js:
+- '6'
+- '7'
+sudo: false
+cache:
+  directories:
+  - "$HOME/.npm"
+before_install:
+- npm config set spin false
+- npm install -g phantomjs-prebuilt ember-cli
+- phantomjs --version
+
+install:
+- npm install
+
+jobs:
+  include:
+    - stage: test
+      script: ember test
+    - stage: build
+      script: ember build
+    - stage: deploy
+      deploy: &heroku
+        provider: heroku
+        app: quattro-stagione
+        script: skip
+        on:
+          branch: master
+        api_key:
+          secure:
+        
