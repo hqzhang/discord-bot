@@ -1,17 +1,8 @@
-FROM ubuntu:18.04
+FROM debian
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends cowsay \
+    && rm -rf /var/lib/apt/lists/*
+ENV PATH "$PATH:/usr/games"
 
-RUN apt-get update
-RUN apt-get install python3 -y
-RUN apt-get install python3-pip -y
-
-ENV HOME /home
-COPY dbot.py /home/dbot.py
-STOPSIGNAL SIGTERM
-WORKDIR /home
-
-COPY requirements.txt /home/requirements.txt
-RUN pip3 install -r requirements.txt
-
-ENTRYPOINT ["python3"]
-
-CMD ["dbot.py"]
+ENTRYPOINT ["cowsay"]
+CMD ["Hello, World!"]
