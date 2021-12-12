@@ -13,13 +13,14 @@ before_install:
   - lsb_release -c
     #- cat /etc/apt/sources.list.d/docker.list
   - ./docker-ins.sh
+  - sudo docker ps
     #- sudo apt-get install -y -o Dpkg::Options::="--force-confold" docker-engine
 
 before_script:
-  - docker pull testblogorganization/cowspeak || true
+  - sudo docker pull testblogorganization/cowspeak || true
 script:
-  - docker build --pull --cache-from testblogorganization/cowspeak --tag testblogorganization/cowspeak .
-  - docker run testblogorganization/cowspeak
+  - sudo docker build --pull --cache-from testblogorganization/cowspeak --tag testblogorganization/cowspeak .
+  - sudo docker run testblogorganization/cowspeak
 
 after_script:
   - docker images
