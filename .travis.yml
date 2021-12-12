@@ -23,10 +23,10 @@ script:
   - sudo docker run testblogorganization/cowspeak
 
 after_script:
-  - docker images
+  - sudo docker images
 
 before_deploy:
-  - docker login -u "$REGISTRY_USER" -p "$REGISTRY_PASS"
+  - sudo docker login -u "$REGISTRY_USER" -p "$REGISTRY_PASS"
 deploy:
   provider: script
   script: docker push testblogorganization/cowspeak
